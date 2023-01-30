@@ -16,7 +16,7 @@ try {
 
   if($stmt->rowCount() > 0):
 
-    echo 'Usuário cadastrado com sucesso';
+    echo 'Usuário deletado com sucesso';
 
   endif;
 

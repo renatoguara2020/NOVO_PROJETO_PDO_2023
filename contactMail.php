@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__.'../../bibliotecas/PHPMailer/SMTP.php';
-require __DIR__.'../../bibliotecas/PHPMailer/PHPMailer.php';
-require __DIR__.'../../bibliotecas/PHPMailer/Exception.php';
+require __DIR__.'./bibliotecas/PHPMailer/PHPMailer.php';
+require __DIR__.'./bibliotecas/PHPMailer/SMTP.php';
+require __DIR__.'./bibliotecas/PHPMailer/Exception.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
