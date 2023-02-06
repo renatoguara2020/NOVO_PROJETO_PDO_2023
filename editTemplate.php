@@ -1,11 +1,12 @@
 <?php
 
-
+include_once   './connection.php';
 if(isset($_POST['submit'])){
      
-    
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_INT);
     $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
     $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
+    $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
 
 
     $stmt = $conn->prepare("UPDATE usuarios SET first_name = :first_name, last_name = :last_name WHERE id = :id");
@@ -13,6 +14,7 @@ if(isset($_POST['submit'])){
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->bindParam(':first_name', $first_name, PDO::PARAM_STR);
     $stmt->bindParam(':last_name', $last_name,PDO::PARAM_STR);
+    $stmt->bindParam(':uername', $username, PDO::PARAM_STR);
 
 
 }
@@ -53,15 +55,18 @@ while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         <title>Document</title>
     </head>
     <body>
-        <form action="editTemplate.php" method="post">
+     <div class="container"> 
+        <form action="editTemplate.php" method="post" class="form-control">
 
         <label class="form-label">Nome:</label>
-        <input type="text" class="form-control" name="first_name" value="<?php echo $first_name; ?>" placeholder="Digite seu nome" />
+        <input type="text" class="form-control" name="first_name" value="<?php echo $first_name; ?>"  />
         <label class="form-label">Sobrenome:</label>
-        <input type="text" class="form-control" name="last_name" value="<?php echo $last_name; ?>"  placeholder="Digite seu nome" />
-         <input type="hidden" name="id" value="<?php echo $id ?>"/>
+        <input type="text" class="form-control" name="last_name" value="<?php echo $last_name; ?>"   />
+        <label class="form-label">Username:</label>
+        <input type="text" class="form-control" name="username" value="<?php echo $username; ?>" />
+        <input type="hidden" name="id" value="<?php echo $id ?>"/>
         <input type="submit" name="submit" value="Cadastrar" />
-        
         </form>
+   </div>  
     </body>
     </html>

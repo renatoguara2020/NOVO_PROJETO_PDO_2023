@@ -29,9 +29,6 @@ if (isset($_POST['cadastrar'])) {
     if (isset($_POST['cep'])):
         $cep = $_POST['cep'];
     endif;
-    if (isset($_POST['estado'])):
-        $estado = $_POST['estado'];
-    endif;    
 
     $stmt = $conn->prepare("INSERT INTO usuarios (first_name, last_name, username, cidade, cep, estado)
     VALUES(:first_name, :last_name, :username, :cidade, :cep, :estado)");
