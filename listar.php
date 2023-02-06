@@ -41,7 +41,8 @@ $conn->exec("SET NAMES 'UTF8' ");
     
     <table class="table table-striped table-hover">
 
-        <thead class="table-dark">
+        <thead class="table-dark table-hover">
+          <tr>  
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
             <th scope="col">Sobrenome</th>
@@ -50,6 +51,8 @@ $conn->exec("SET NAMES 'UTF8' ");
             <th scope="col">CEP</th>
             <th scope="col">Estado</th>
             <th scope="col">Update || Delete</th>
+          </tr>  
+
         </thead>
         <?php
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
